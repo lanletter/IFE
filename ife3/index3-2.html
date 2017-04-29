@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*,body{margin: 0;padding: 0;}
+			.tbstyle{width: 800px;margin:50px auto;font-family: "微软雅黑";}
+			.tbstyle tr th{padding-right:10px;width:85px;height: 60px;line-height: 60px;font-size: 20px;color: #333333;text-align: right;}
+			.tbstyle tr td{height: 60px;line-height: 60px;font-size: 20px;}
+			.tbstyle tr td div{height: 60px;line-height: 30px;}
+			.tbstyle tr td input{padding:0 5px;width:96%;height: 56px;border-radius: 10px;font-size: 28px;background: #ffffff;color: #333333;}
+			.tbstyle tr th button{width:200px;height: 60px;color:#ffffff;font-size: 20px;border:0;background:#2f79bb;border-radius: 6px;}
+			.color1{color: gray;}
+			.color2{color: red;}
+			.color3{color: green;}
+			.bdcolor1{border:2px solid gray;}
+			.bdcolor2{border:2px solid red;}
+			.bdcolor3{border:2px solid green;}
+		</style>
+	</head>
+	<body>
+		<form name="form" onsubmit="return checkForm()">
+			<table border="0" cellspacing="0" cellpadding="0" class="tbstyle">
+				<tr>
+					<th rowspan="2" valign="top">名称</th>
+					<td><input type="text" class="bdcolor1" id="user" onfocus="userFocus()" onblur="userBlur()"></td>
+				</tr>
+				<tr>
+					<td><div class="color1" id="userPrompt"></div></td>
+				</tr>
+				<tr>
+					<th rowspan="2" valign="top">密码</th>
+					<td><input type="password" class="bdcolor1" id="pwd" onfocus="pwdFocus()" onblur="pwdBlur()"/></td>
+				</tr>
+				<tr>
+					<td><div class="color1" id="pwdPrompt"></div></td>
+				</tr>
+				<tr>
+					<th rowspan="2" valign="top">确认密码</th>
+					<td><input type="password" class="bdcolor1" id="repwd" onfocus="repwdFocus()" onblur="repwdBlur()"/></td>
+				</tr>
+				<tr>
+					<td><div class="color1" id="repwdPrompt"></div></td>
+				</tr>
+				<tr>
+					<th rowspan="2" valign="top">电话</th>
+					<td><input type="text" class="bdcolor1" id="tell" onfocus="tellFocus()" onblur="tellBlur()"/></td>
+				</tr>
+				<tr>
+					<td><div class="color1" id="tellPrompt"></div></td>
+				</tr>
+				<tr>
+					<th rowspan="2" valign="top">邮箱</th>
+					<td><input type="text" class="bdcolor1" id="mail" onfocus="mailFocus()" onblur="mailBlur()"/></td>
+				</tr>
+				<tr>
+					<td><div class="color1" id="mailPrompt"></div></td>
+				</tr>
+				<tr>
+					<th colspan="2" style="text-align: center;"><button value="Submit" type="submit">验证</button></th>
+				</tr>
+			</table>
+		</form>
+		
+		<script type="text/javascript">
+			/*通过ID获取HTML对象的通用方法，使用$代替函数名称*/
+			function $(elementId){
+			    return document.getElementById(elementId);
+			}
+			/*当鼠标放在用户名文本框时，提示文本及样式*/    
+			function userFocus(){
+			    var userPrompt=$("userPrompt");
+			    user.className="bdcolor1";
+			    userPrompt.className="color1";
+			    userPrompt.innerHTML="必填，长度为4～16个字符，由汉字、字母、数字、下划线组成";
+			}
+			/*当鼠标离开用户名文本框时，提示文本及样式*/    
+			function userBlur(){
+			    var user=$("user");
+			    var userPrompt=$("userPrompt");
+			    var reg= /^[a-zA-Z0-9_\u4e00-\u9fa5]{4,16}$/;   // 汉字、字母、数字、下划线
+    				
+			    if(user.value==""){
+			    		user.className="bdcolor2";
+			        userPrompt.className="color2";
+			        userPrompt.innerHTML="名称不能为空";
+			        return false;
+			        }
+			    if(reg.test(user.value)==false){
+			    		user.className="bdcolor2";
+			        userPrompt.className="color2";
+			        userPrompt.innerHTML="只能由汉字、字母、数字、下划线组成且长度为4-16";
+			        return false;
+			      }
+			    	user.className="bdcolor3";
+			    	userPrompt.className="color3";
+			    	userPrompt.innerHTML="输入正确";
+			    	return true;
+			}
+			
+			/*当鼠标放在密码文本框时，提示文本及样式*/    
+			function pwdFocus(){
+			    var pwdPrompt=$("pwdPrompt");
+			    pwd.className="bdcolor1";
+			    pwdPrompt.className="color1";
+			    pwdPrompt.innerHTML="必填，长度为6～20个字符，由字母、数字、下划线组成";
+			}
+			/*当鼠标离开密码文本框时，提示文本及样式*/    
+			function pwdBlur(){
+			    var pwd=$("pwd");
+			    var pwdPrompt=$("pwdPrompt");
+			    var reg= /^[a-zA-Z0-9_]{6,20}$/;   // 字母、数字、下划线
+    				
+			    if(pwd.value==""){
+			    		pwd.className="bdcolor2";
+			        pwdPrompt.className="color2";
+			        pwdPrompt.innerHTML="密码不能为空";
+			        return false;
+			        }
+			    if(reg.test(pwd.value)==false){
+			    		pwd.className="bdcolor2";
+			        pwdPrompt.className="color2";
+			        pwdPrompt.innerHTML="只能由字母、数字、下划线组成且长度为6-20";
+			        return false;
+			      }
+			    	pwd.className="bdcolor3";
+			    	pwdPrompt.className="color3";
+			    	pwdPrompt.innerHTML="输入正确";
+			    	return true;
+			}
+			
+			/*当鼠标放在确认密码文本框时，提示文本及样式*/    
+			function repwdFocus(){
+			    var repwdPrompt=$("repwdPrompt");
+			    repwd.className="bdcolor1";
+			    repwdPrompt.className="color1";
+			    repwdPrompt.innerHTML="请重复一遍刚才输入的密码";
+			}
+			/*当鼠标离开确认密码文本框时，提示文本及样式*/    
+			function repwdBlur(){
+			    var repwd=$("repwd");
+			    var pwd=$("pwd");
+			    if(repwd.value==""){
+			        repwd.className="bdcolor2";
+			    		repwdPrompt.className="color2";
+			        repwdPrompt.innerHTML="确认密码不能为空";
+			        return false;
+			        }
+			    if(repwd.value!=pwd.value){
+			        repwd.className="bdcolor2";
+			    		repwdPrompt.className="color2";
+			        repwdPrompt.innerHTML="两次输入的密码不一致，请重新输入";
+			        return false;
+			        }
+			        repwd.className="bdcolor3";
+			        repwdPrompt.innerHTML="两次密码输入相同";
+			        return true;
+			}
+
+			/*当鼠标放在电话文本框时，提示文本及样式*/    
+			function tellFocus(){
+			    var tellPrompt=$("tellPrompt");
+			    tell.className="bdcolor1";
+			    tellPrompt.className="color1";
+			    tellPrompt.innerHTML="必填，长度为11个数字";
+			}
+			/*当鼠标离开电话文本框时，提示文本及样式*/    
+			function tellBlur(){
+			    var tell=$("tell");
+			    var tellPrompt=$("tellPrompt");
+			    var reg=/^[\d]{11}$/;
+			    if(tell.value==""){
+			    		tell.className="bdcolor2";
+			        tellPrompt.className="color2";
+			        tellPrompt.innerHTML="电话号码不能为空";
+			        return false;
+			        }
+			    if(reg.test(tell.value)==false){
+			    		tell.className="bdcolor2";
+			        tellPrompt.className="color2";
+			        tellPrompt.innerHTML="电话号码为11位数字组成";
+			        return false;
+			        }
+			    		tell.className="bdcolor3";
+			        tellPrompt.className="color3";
+			        tellPrompt.innerHTML="输入正确";
+			        return true;
+			}
+			/*当鼠标放在电子邮件文本框时，提示文本及样式*/    
+			function mailFocus(){
+			    var mailPrompt=$("mailPrompt");
+			    mail.className="bdcolor1";
+			    mailPrompt.className="color1";
+			    mailPrompt.innerHTML="必填，请输入您的常用电子邮箱";
+			}
+			/*当鼠标离开电子邮件文本框时，提示文本及样式*/    
+			function mailBlur(){
+			    var mail=$("mail");
+			    var mailPrompt=$("mailPrompt");
+			    var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+			    if(mail.value==""){
+			    		mail.className="bdcolor2";
+			        mailPrompt.className="color2";
+			        mailPrompt.innerHTML="邮箱不能为空";
+			        return false;
+			        }
+			    if(reg.test(mail.value)==false){
+			    		mail.className="bdcolor2";
+			        mailPrompt.className="color2";
+			        mailPrompt.innerHTML="请输入正确的邮箱格式";
+			        return false;
+			        }
+			    		mail.className="bdcolor3";
+			        mailPrompt.className="color3";
+			        mailPrompt.innerHTML="输入正确";
+			        return true;
+			}
+			
+			/*表单提交时验证表单内容输入的有效性*/
+			function checkForm(){
+			    var flagUser=userBlur();
+			    var flagPwd=pwdBlur();
+			    var flagRepwd=repwdBlur();
+			    var flagTell=tellBlur();
+			    var flagEmail=mailBlur();
+			    if(flagUser==true &&flagPwd==true &&flagRepwd==true &&flagTell==true &&flagEmail==true){
+			        alert("输入正确，已提交！");
+			        return true;
+			    }else{
+			        return false;
+			    }
+			}
+			
+		</script>
+	</body>
+</html>

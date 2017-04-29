@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>任务六：UI组件之浮出层</title>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+*,body,p{margin: 0;padding: 0;}
+.div_blue {width:800px;height: 500px;position:absolute;left:50%;top:50%;margin-left:-400px;margin-top:-250px;background:#ffffff;z-index:10000;display:none;}
+.div_blue p {background:#ffffff;text-indent:2em;padding:108px 45px 45px 45px;font-family: "宋体";font-size: 14px;color: #666;line-height:24px;}
+.close_btn {float:right;width: 24px;height: 24px;line-height;24px;text-align:center;display: block;color:#666666;text-decoration: none;font-family: "微软雅黑";font-size: 16px;}
+.close_btn:hover{color:#000000;}
+.mask{margin:0;padding:0;border:none;width:100%;height:100%;background:#333;opacity:0.6;filter:alpha(opacity=60);z-index:9999;position:fixed;top:0;left:0;display:none;}
+#example{width:200px;height:40px;line-height:40px;position:absolute;left:50%;top:50%;margin-left:-100px;margin-top:-20px;text-align:center;color:#ffffff;font-family:"微软雅黑";font-size:16px;background:#4490f7;text-decoration:none;border-radius:5px;opacity:0.6;filter:alpha(opacity=60);}
+</style>
+</head>
+
+<body>
+    <a href="#" id="example">弹出窗口</a>
+    <div id="Popup" class="div_blue">
+        <a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">X</a>
+        <p>这是一个浮出层</p>
+    </div>
+    <script type="text/javascript">
+	$(function ($) {
+		//弹出登录
+		$("#example").hover(function () {$(this).stop().animate({opacity: '1'}, 600);
+		}, function () {$(this).stop().animate({opacity: '0.6'}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#Popup").fadeIn("slow");
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#999' }) }).on('click', function () {
+			$("#Popup").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+	</script>	
+</body>
+</html>

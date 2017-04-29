@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>任务四：定位和居中问题</title>
+		<style type="text/css">
+			.boxgrey{
+				width: 400px;
+				height: 200px;
+				position: absolute;
+				top:50%;
+				left: 50%;
+				margin-top: -100px;
+				margin-left: -200px;
+				background: #cccccc;
+			}
+			.fan{
+				width:50px;
+				height:50px;
+				position: absolute;
+				background: #ffcc00;
+			}
+			.fan1{top: 0;left: 0;border-radius:0 0 100px 0;}
+			.fan2{top: 150px;left: 350px;border-radius: 100px 0 0 0;}
+		</style>
+	</head>
+	<body>
+		<div class="boxgrey">
+			<div class="fan fan1"></div>
+			<div class="fan fan2"></div>
+		</div>
+	</body>
+</html>

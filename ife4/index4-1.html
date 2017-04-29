@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#welcome{
+				width: 450px;
+				height: 250px;
+				margin: 0 auto;
+				margin-top: 100px;
+				position: relative;
+			}
+			#bg{
+				width:100%;
+				height:100%;
+				background:url(img/bg4-1.png) no-repeat;
+				z-index: -1;
+			}
+			#btn{
+				z-index: 1;
+				position:absolute;
+				left:50%;
+				top:50%;
+				margin:-75px 0 0 -175px;
+				width: 350px;
+				height: 140px;
+				line-height: 40px;
+				text-align:center;
+				font-family: "微软雅黑";
+				background: none;
+				border: 0;
+				visibility:hidden;
+			}
+			#btn::before{
+				content:"";
+				position:absolute;
+				left:0;
+				top:50%;
+				width:100%;
+				height:0;
+				border:2px solid #fff;
+				border-width:0 2px;
+				overflow:hidden;
+				box-sizing:border-box;
+				visibility:visible;
+				transition:all .8s;
+			}
+			#btn::after{
+				content:"";
+				position:absolute;
+				left:50%;
+				top:0;
+				width:0;
+				height:98%;
+				border:3px solid #fff;
+				border-width:3px 0;
+				overflow:hidden
+				visibility:hidden;
+				transition:all .8s;
+			}
+			#welcome:hover #bg{
+				filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    				-webkit-filter: blur(10px); /* Chrome, Opera */
+       			-moz-filter: blur(10px);
+        			-ms-filter: blur(10px);    
+            		filter: blur(10px);
+    				filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+    			}
+    			#welcome:hover #btn{
+				visibility:visible;
+			}
+			
+			#welcome:hover #btn::before{
+				height:100%;
+				visibility:visible;
+				top:0;
+			}
+			
+			#welcome:hover #btn::after{
+				width:100%;
+				visibility:visible;
+				left:0;
+			}
+			#title{
+				font-size: 26px;
+				background-image:-webkit-linear-gradient(left,#3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+				background-size:200% 100%;
+				-webkit-background-clip:text;
+				-webkit-text-fill-color:transparent;
+				-webkit-animation:streamerGradient 4s infinite linear;
+			}
+			@keyframes streamerGradient{
+				from{background-position:0% 0%}
+				to{background-position:-100% 0%}
+			}
+			#signup{
+				font-size: 20px;
+				-webkit-animation:changeColor 4s infinite linear;
+			}
+			@keyframes changeColor{
+				10% {color:#ff6699;} 
+				20% {color:#ffff00;}
+				30% {color:#ff6699;}
+				40% {color:#ffff00;}
+				60% {color:#ff6699;}
+				70% {color:#ffff00;}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="welcome">
+			<button id="btn">
+				<span id="title">欢迎参加百度前端技术学院</span><br/>
+				<span id="signup">点击报名</span>
+			</button>
+			<div id="bg"></div>
+		</div>
+	</body>
+</html>

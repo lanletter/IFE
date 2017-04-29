@@ -1,0 +1,75 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title>表单（三）联动</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			*{margin:0px;padding:0px;}
+			#unit{width:60%;margin:20px auto;}
+			#non_student{margin-left:200px;}
+			#for_student{height:30px;margin:20px auto;}
+			#for_student span{float:left;margin-right:20px;}
+			select{float:left;height:30px;border-radius:5px;margin-right:30px;width:200px;border:1px solid #cdcdcd;}
+			#for_non_student{height:30px;margin:20px auto;display:none;}
+			#for_non_student span{float:left;margin-right:20px;}
+			#company{height:30px;width:500px;border-radius:5px;border:1px solid #cdcdcd;}
+		</style>
+	</head>
+	<body>
+		<form action="" id="unit">
+			<input type="radio" name="status" id="student" checked>在校生
+			<input type="radio" name="status" id="non_student">非在校生
+			<div id="for_student">
+				<span>学校</span>
+				<select name="province" id="province">
+					<option value="0">请选择所在省市</option>
+					<option value="北京">北京</option>
+					<option value="上海">上海</option>
+					<option value="深圳">深圳</option>
+				</select>
+				<select name="school" id="school">
+					<option value="0">请选择学校</option>		
+				</select>
+			</div>
+			<div id="for_non_student">
+				<span>就业单位</span>
+				<input type="text" id="company">
+			</div>
+		</form>
+		<script type="text/javascript">
+			function studentForm(){
+				document.getElementById("for_student").style.display = "block";
+				document.getElementById("for_non_student").style.display = "none";
+			}
+			
+			function nonStudentForm(){
+				document.getElementById("for_non_student").style.display = "block";
+				document.getElementById("for_student").style.display = "none";
+			}
+			
+			function showSchool(){
+				var schoolName = [
+				["北京大学","清华大学","北京航空航天大学","北京交通大学","北京理工大学","北京科技大学"],
+				["复旦大学","同济大学","上海交通大学","华东理工大学","上海理工大学","上海海事大学","东华大学"],
+				["深圳大学"],
+				]
+			
+				var province = document.getElementById("province");
+				var school = document.getElementById("school");
+				var proSchool = schoolName[province.selectedIndex-1];
+				school.length=1;
+				for(var i = 0;i<proSchool.length;i++){
+					school[i+1] = new Option(proSchool[i],proSchool[i]);	
+				}
+			}
+			
+			function init(){
+				document.getElementById("student").onclick = studentForm ;
+				document.getElementById("non_student").onclick = nonStudentForm;
+				document.getElementById("province").onchange = showSchool ;
+			}
+			
+			init();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+*,body{margin:0;padding:0; list-style: none;}
+.ml5r3{margin-left: 5px;margin-right: 3px;}
+
+.header{width:1280px;height: 60px;margin:0 auto;background:#333333;position:relative;top:0;}
+.logo{width: 115px;height: 35px;position: relative;left:20px;top:10px;}
+.nav{position:absolute;right:0;top: 17px;}
+.nav li {float: right;margin-right: 20px;}
+.nav li a{color: #ffffff;font-family: "微软雅黑";font-size: 14px; text-decoration: none;}
+.nav li a:hover{color:#999999;}
+.center{width:1280px;margin:0 auto;background:#dddddd;position:relative;top:0;padding: 20px 0 1px 0;}
+.content{margin:0 20px 20px 20px;background: #ffffff;padding: 20px;font-family: "微软雅黑";box-shadow: 3px 3px 2px #999999;}
+.tittle1{font-size: 20px;font-weight: bold;color: #000000;margin: 10px 0;}
+.tittle2{font-size: 14px;font-weight: bold;color: #666666;margin: 10px 0;}
+.info{font-size: 12px;color: #999999;margin: 10px 0;}
+.info span{margin-right: 10px;}
+.detail{font-size: 14px;color: #333333;line-height:28px;text-indent: 2em;}
+.pic1 img{width: 300px;height: 240px;}
+.pic2 img{width: 100px;height: 80px;}
+.picdetail{margin:15px;padding: 10px;width: 100px;height: 105px;border: 1px solid #cccccc;}
+.picdetail p{text-align: center;font-size: 11px;color: #333333;margin-bottom: 10px;}
+.tbtittle{font-size: 14px;color: #333333;margin-top: 10px;}
+.tbdetail{width: 100%;font-size: 13px;}
+.tbdetail tr th{height:24px;padding-left:5px;color: #ffffff;background: #333333;text-align: left;}
+.tbdetail tr td{height:24px;padding-left:5px;color: #333333;background: #ffffff;}
+
+.login{height:40px;line-height:40px;padding-left:10px;font-size: 16px;font-weight:bold;color: #333333;border-left: 3px solid #cccccc;}
+.tblogin{width:100%;margin: 10px 0;}
+.tblogin tr th{width:30%;height:36px;line-height:36px;padding-right:10px;text-align:right;font-size: 14px;font-weight:normal;color: #333333;}
+.tblogin tr td{width:70%;height:36px;font-size: 14px;}
+.tblogin tr td input{padding-left:5px;vertical-align:middle;font-size: 13px;color: #333333;height:20px;border:1px solid #cccccc;}
+.tblogin tr td select{font-size: 13px;color: #333333;height:20px;border:1px solid #cccccc;}
+.tblogin tr td textarea{width: 90%;padding:5px;line-height:24px;font-size: 16px;color: #333333;height:80px;border:1px solid #cccccc;}
+.txtgrey{font-size: 14px;color: #999999;}
+.btnlogin{width: 100%;height:40px;line-height:40px;font-size: 14px;color:#ffffff;background: blue; border-radius: 10px;}
+
+.footer{width:1280px;height: 60px;margin:0 auto;background:#333333;position:relative;top:0;}
+.footer p{padding-top: 20px;font-family: "微软雅黑";font-size: 13px;text-align: center;color: #ffffff;}
